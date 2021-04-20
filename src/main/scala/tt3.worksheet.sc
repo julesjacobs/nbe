@@ -166,3 +166,8 @@ val idfn_yes_typed =
   app2(app2(app2(app_ty, answer, answer), idfn, yes),
        idfn_typed,
        yes_ty)
+
+print(idfn_yes_typed.thm)
+// App(App(typed,App(App(app,App(lam,Lam(term, a => a))),yes)),answer) : U(0)
+// In normal notation: typed (app (lam (λx, x) yes) answer : U(0)
+// (:
