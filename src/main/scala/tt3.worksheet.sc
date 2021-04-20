@@ -1,3 +1,10 @@
+// An implementation of dependent type theory with Π-types and a hierarchy of universes.
+// Everything is done with HOAS. No parser, you write the terms by calling the constructors by hand.
+// The term constructors return a pair of (term, type) if you use them in a type correct way.
+// They raise an exception if you make a type error.
+// Can be used as a logical framework by using the Axiom constructor, which gives you a term of the given type.
+// At the end of the file I've put a definition of STLC terms + types + typing rules + example.
+
 def fail(msg:String) = assert(false, msg)
 var k = 0
 def fresh() = { k += 1; (k+'a'-1).toChar.toString() }
@@ -102,7 +109,8 @@ val four = App(addtwo, two).nf
 
 val mkpi = Lam(U(0), t => Lam(arr(t,U(0)), f => Pi(t, x => App(f,x))))
 
-// STLC + answer type
+// We define the STLC typing relation (with answer type)
+// And prove that (λ x, x) : answer -> answer
 
 val tm = Axiom("term", U(0))
 val app = Axiom("app", arr(tm,arr(tm,tm)))
