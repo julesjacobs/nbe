@@ -101,3 +101,60 @@ val addtwo = Lam(nat, n => App(succ, App(succ, n)))
 val four = App(addtwo, two).nf
 
 val mkpi = Lam(U(0), t => Lam(arr(t,U(0)), f => Pi(t, x => App(f,x))))
+
+// STLC + answer type
+
+val tm = Axiom("term", U(0))
+val app = Axiom("app", arr(tm,arr(tm,tm)))
+val lam = Axiom("lam", arr(arr(tm,tm),tm))
+val yes = Axiom("yes", tm)
+val no = Axiom("no", tm)
+
+val ty = Axiom("type", U(0))
+val fun = Axiom("fun", arr(ty,arr(ty,ty)))
+val answer = Axiom("answer", ty)
+
+val typed = Axiom("typed", arr(tm,arr(ty,U(0))))
+
+def app2(a:pf,b:pf,c:pf):pf = App(App(a,b),c)
+
+val yes_ty = Axiom("yes_ty", app2(typed,yes,answer))
+val no_ty = Axiom("yes_ty", app2(typed,no,answer))
+
+// t1 : ty
+// t2 : ty
+// e1 : tm
+// e2 : tm
+//
+// typed e1 (fun t1 t2) -> typed e2 t1 -> typed (app e1 e2) t2
+val app_ty = Axiom("app_ty", Pi(ty, t1 => Pi(ty, t2 => Pi(tm, e1 => Pi(tm, e2 =>
+  arr(app2(typed, e1, app2(fun,t1,t2)),
+  arr(app2(typed, e2, t1),
+      app2(typed, app2(app,e1,e2), t2))))
+))))
+
+// t1 : ty
+// t2 : ty
+// e : tm -> tm
+//
+// (∀ x:tm, typed x t1 -> typed e(x) t2) -> typed (lam e) (fun t1 t2)
+val lam_ty = Axiom("lam_ty", Pi(ty, t1 => Pi(ty, t2 => Pi(arr(tm,tm), e =>
+  arr(Pi(tm, x => arr(app2(typed, x, t1), app2(typed, App(e,x), t2))),
+      app2(typed, App(lam, e), app2(fun,t1,t2)))
+))))
+
+val idfn = App(lam, Lam(tm, x => x))
+
+// In the above, take t1 = answer, t2 = answer, e = λ x, x
+// We prove here that the term (λ x, x) can be given type answer -> answer
+val idfn_typed =
+  App(App(app2(lam_ty, answer, answer), Lam(tm, x => x)),
+      Lam(tm, x => Lam(app2(typed,x,answer), h => h)))
+
+// We apply id_answer to yes
+val idfn_yes = app2(app, idfn, yes)
+
+val idfn_yes_typed =
+  app2(app2(app2(app_ty, answer, answer), idfn, yes),
+       idfn_typed,
+       yes_ty)
