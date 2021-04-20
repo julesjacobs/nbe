@@ -1,0 +1,4 @@
+[debug] [nbe-build] Classpath dependencies List()
+[debug] [nbe-build] Dependencies from configurations List()
+[debug] Bloop wrote the configuration of project 'nbe-build' to '/Users/jules/git/nbe/project/.bloop/nbe-build.json'
+[success] Generated .bloop/nbe-build.json

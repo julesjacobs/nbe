@@ -1,0 +1,28 @@
+[debug] > Exec(early(addDefaultCommands), None, None)
+[debug] > Exec(addDefaultCommands, None, None)
+[debug] > Exec(early(initialize), None, None)
+[debug] > Exec(initialize, None, None)
+[debug] > Exec(boot, None, None)
+[debug] > Exec(writeSbtVersion, None, None)
+[debug] > Exec(reload, None, None)
+[debug] > Exec(sbtStashOnFailure, None, None)
+[debug] > Exec(onFailure loadFailed, None, None)
+[debug] > Exec(loadp, None, None)
+[info] welcome to sbt 1.4.9 (AdoptOpenJDK Java 11.0.9)
+[debug] Load.defaultLoad until apply took 296.540419ms
+[debug]                       Load.loadUnit: plugins took 71.210419ms
+[debug]                       Load.loadUnit: defsScala took 0.259031ms
+[debug] [Loading] Scanning directory /Users/jules/git/nbe/project/project/project
+[debug]                         Load.loadUnit: mkEval took 6.418509ms
+[debug] [Loading] Found non-root projects 
+[debug] [Loading] Done in /Users/jules/git/nbe/project/project/project, returning: ()
+[debug] deducing auto plugins based on known facts Set(Atom(sbt.plugins.CorePlugin)) and clauses Clauses(List(Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.IvyPlugin))), Clause(Atom(sbt.ScriptedPlugin),Set(Atom(sbt.plugins.JvmPlugin))), Clause(Atom(sbt.plugins.SbtPlugin),Set(Atom(sbt.ScriptedPlugin))), Clause(Atom(sbt.plugins.SemanticdbPlugin),Set(Atom(sbt.plugins.JvmPlugin))), Clause(Atom(sbt.plugins.JUnitXmlReportPlugin),Set(Atom(sbt.plugins.JvmPlugin))), Clause(Atom(sbt.plugins.MiniDependencyTreePlugin),Set(Atom(sbt.plugins.JvmPlugin))), Clause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.IvyPlugin))), Clause(Atom(sbt.plugins.IvyPlugin),Set(Atom(sbt.plugins.JvmPlugin))), Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.SemanticdbPlugin))), Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.JUnitXmlReportPlugin))), Clause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.Giter8TemplatePlugin))), Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.MiniDependencyTreePlugin)))))
+[debug]   :: deduced result: Matched(sbt.plugins.CorePlugin,sbt.plugins.Giter8TemplatePlugin,sbt.plugins.IvyPlugin,sbt.plugins.JvmPlugin,sbt.plugins.MiniDependencyTreePlugin,sbt.plugins.JUnitXmlReportPlugin,sbt.plugins.SemanticdbPlugin)
+[debug] Plugins.deducer#function took 25.16881 ms
+[info] loading settings for project nbe-build-build-build from metals.sbt ...
+[debug]                           Load.resolveProject(nbe-build-build-build) took 54.509522ms
+[debug]                         Load.loadTransitive: finalizeProject(Project(id nbe-build-build-build, base: /Users/jules/git/nbe/project/project/project, plugins: List(<none>))) took 113.209921ms
+[debug] [Loading] Done in /Users/jules/git/nbe/project/project/project, returning: (nbe-build-build-build)
+[debug]                       Load.loadUnit: loadedProjectsRaw took 338.471207ms
+[debug]                       Load.loadUnit: cleanEvalClasses took 6.612689ms
+[debug]                     Load.loadUnit(file:/Users/jules/git/nbe/project/project/project/, ...) took 421.278022ms
