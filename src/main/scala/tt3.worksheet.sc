@@ -37,6 +37,8 @@ case class U(n:Integer) extends pf {
   def nf = this
 }
 
+// We have a separate fresh variable counter for pretty printing purposes
+// We can reset this after every .toString() to avoid running out of letters
 var n = 0
 def ppf(t:pf, f:pf => pf) =
   n += 1
