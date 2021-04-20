@@ -9,15 +9,16 @@ def fail(msg:String) = assert(false, msg)
 var k = 0
 def fresh() = { k += 1; (k+'a'-1).toChar.toString() }
 
+
 abstract class pf {
   def thm : pf
   def nf : pf
   def pp : String
   override def toString() =
     try {
-      k = 0
+      n = 0
       val tm = pp
-      k = 0
+      n = 0
       val ty = thm.pp
       s"$tm : $ty"
     } catch {
@@ -36,13 +37,15 @@ case class U(n:Integer) extends pf {
   def nf = this
 }
 
+var n = 0
 def ppf(t:pf, f:pf => pf) =
-  val x = fresh()
+  n += 1
+  val x = (n+'a'-1).toChar.toString()
   s"$x => ${f(Axiom(x,t)).pp}"
 
 case class Pi(t:pf, f:pf => pf) extends pf {
   val thm = t.thm.nf match {
-    case U(n) => f(Axiom("?",t)).thm.nf match {
+    case U(n) => f(Axiom(fresh(),t)).thm.nf match {
       case U(m) => U(if n < m then m else n)
       case _ => fail(s"The second argument of Pi needs to return a type: \n\t$this")
     }
@@ -64,7 +67,7 @@ def eqlf(a:pf, f:pf => pf, g:pf => pf) : Boolean =
 
 def eql(a:pf, b:pf) : Boolean =
   (a.nf,b.nf) match {
-    case (Axiom(x,s),Axiom(y,t)) => x == y
+    case (Axiom(x,s),Axiom(y,t)) => x == y && eql(s,t)
     case (Pi(s,f),Pi(t,g)) => eql(t,s) && eqlf(s,f,g)
     case (Lam(s,f),Lam(t,g)) => eql(t,s) && eqlf(s,f,g)
     case (App(f,x),App(g,y)) => eql(f,g) && eql(x,y)
