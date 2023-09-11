@@ -1,0 +1,93 @@
+2023.02.15 20:27:42 INFO  tracing is disabled for protocol LSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /Users/jules/git/nbe/src/main/scala/.metals/lsp.trace.json or /Users/jules/Library/Caches/org.scalameta.metals/lsp.trace.json
+2023.02.15 20:27:43 INFO  logging to file /Users/jules/git/nbe/src/main/scala/.metals/metals.log
+2023.02.15 20:27:43 INFO  Started: Metals version 0.11.10 in workspace '/Users/jules/git/nbe/src/main/scala' for client Visual Studio Code 1.75.1.
+SLF4J: No SLF4J providers were found.
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.
+SLF4J: Class path contains SLF4J bindings targeting slf4j-api versions 1.7.x or earlier.
+SLF4J: Ignoring binding found at [jar:file:/Users/jules/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/com/outr/scribe-slf4j_2.13/3.10.5/scribe-slf4j_2.13-3.10.5.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See https://www.slf4j.org/codes.html#ignoredBindings for an explanation.
+2023.02.15 20:27:44 INFO  time: initialize in 1.33s
+2023.02.15 20:27:46 WARN  Build server is not auto-connectable.
+2023.02.15 20:27:46 WARN  no build tool detected in workspace '/Users/jules/git/nbe/src/main/scala'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2023.02.15 20:27:46 WARN  no build target for: /Users/jules/git/nbe/src/main/scala/tt3.worksheet.sc
+2023.02.15 20:27:50 INFO  no build target found for /Users/jules/git/nbe/src/main/scala/tt3.worksheet.sc. Using presentation compiler with project's scala-library version: 3.2.1
+2023.02.15 20:27:52 WARN  no build target for: /Users/jules/git/nbe/src/main/scala/tt2.worksheet.sc
+2023.02.15 20:27:53 INFO  time: code lens generation in 6.71s
+2023.02.15 20:27:54 INFO  time: code lens generation in 2.13s
+2023.02.15 20:27:57 INFO  no build target found for /Users/jules/git/nbe/src/main/scala/tt3.worksheet.sc. Using presentation compiler with project's scala-library version: 3.2.1
+2023.02.15 20:27:57 INFO  time: evaluated worksheet 'tt3.worksheet.sc' in 10s
+2023.02.15 20:28:00 INFO  no build target found for /Users/jules/git/nbe/src/main/scala/tt2.worksheet.sc. Using presentation compiler with project's scala-library version: 3.2.1
+2023.02.15 20:28:00 INFO  time: evaluated worksheet 'tt2.worksheet.sc' in 2.67s
+2023.02.15 20:28:11 WARN  no build target for: /Users/jules/git/nbe/src/main/scala/tt.worksheet.sc
+2023.02.15 20:28:14 INFO  no build target found for /Users/jules/git/nbe/src/main/scala/tt.worksheet.sc. Using presentation compiler with project's scala-library version: 3.2.1
+2023.02.15 20:28:14 INFO  time: evaluated worksheet 'tt.worksheet.sc' in 2.6s
+2023.02.15 20:28:30 WARN  no build target for: /Users/jules/git/nbe/src/main/scala/tt2.worksheet.sc
+2023.02.15 20:28:31 INFO  time: evaluated worksheet 'tt2.worksheet.sc' in 1.27s
+2023.02.15 20:28:36 WARN  no build target for: /Users/jules/git/nbe/src/main/scala/tt.worksheet.sc
+2023.02.15 20:28:37 INFO  time: evaluated worksheet 'tt.worksheet.sc' in 0.95s
+2023.02.15 20:28:39 WARN  no build target for: /Users/jules/git/nbe/src/main/scala/tt2.worksheet.sc
+Feb 15, 2023 8:28:39 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint fallbackResponseError
+SEVERE: Internal error: java.lang.UnsupportedOperationException: tail of empty list
+java.util.concurrent.CompletionException: java.lang.UnsupportedOperationException: tail of empty list
+	at java.base/java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:331)
+	at java.base/java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:346)
+	at java.base/java.util.concurrent.CompletableFuture$UniAccept.tryFire(CompletableFuture.java:704)
+	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:506)
+	at java.base/java.util.concurrent.CompletableFuture.completeExceptionally(CompletableFuture.java:2088)
+	at scala.meta.internal.metals.CancelTokens$.$anonfun$future$1(CancelTokens.scala:40)
+	at scala.meta.internal.metals.CancelTokens$.$anonfun$future$1$adapted(CancelTokens.scala:38)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:484)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+Caused by: java.lang.UnsupportedOperationException: tail of empty list
+	at scala.collection.immutable.Nil$.tail(List.scala:664)
+	at scala.collection.immutable.Nil$.tail(List.scala:661)
+	at scala.meta.internal.metals.codeactions.CreateCompanionObjectCodeAction.$anonfun$endPosOfTree$1(CreateCompanionObjectCodeAction.scala:77)
+	at scala.Option.flatMap(Option.scala:283)
+	at scala.meta.internal.metals.codeactions.CreateCompanionObjectCodeAction.endPosOfTree(CreateCompanionObjectCodeAction.scala:75)
+	at scala.meta.internal.metals.codeactions.CreateCompanionObjectCodeAction.$anonfun$contribute$5(CreateCompanionObjectCodeAction.scala:61)
+	at scala.Option.map(Option.scala:242)
+	at scala.meta.internal.metals.codeactions.CreateCompanionObjectCodeAction.$anonfun$contribute$4(CreateCompanionObjectCodeAction.scala:58)
+	at scala.Option$WithFilter.flatMap(Option.scala:283)
+	at scala.meta.internal.metals.codeactions.CreateCompanionObjectCodeAction.$anonfun$contribute$2(CreateCompanionObjectCodeAction.scala:56)
+	at scala.Option.flatMap(Option.scala:283)
+	at scala.meta.internal.metals.codeactions.CreateCompanionObjectCodeAction.$anonfun$contribute$1(CreateCompanionObjectCodeAction.scala:55)
+	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:678)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:467)
+	... 3 more
+
+2023.02.15 20:28:40 INFO  time: evaluated worksheet 'tt2.worksheet.sc' in 1.07s
+2023.02.15 20:28:44 WARN  no build target for: /Users/jules/git/nbe/src/main/scala/tt3.worksheet.sc
+2023.02.15 20:28:46 INFO  time: evaluated worksheet 'tt3.worksheet.sc' in 1.5s
+2023.02.15 20:29:05 WARN  no build target for: /Users/jules/git/nbe/src/main/scala/tt2.worksheet.sc
+2023.02.15 20:29:06 INFO  time: evaluated worksheet 'tt2.worksheet.sc' in 0.79s
+2023.02.15 20:29:22 WARN  no build target for: /Users/jules/git/nbe/src/main/scala/tt4.worksheet.sc
+[31merror[39m: tt4.worksheet.sc:110:25: 
+Type argument MdocApp.this.IntrosT[X] does not conform to upper bound Tuple
+
+Note: a match type could not be fully reduced:
+
+  trying to reduce  MdocApp.this.IntrosT[X]
+  failed since selector  X
+  does not match  case MdocApp.this.pf => MdocApp.this.pf
+  and cannot be shown to be disjoint from it either.
+  Therefore, reduction cannot advance to the remaining case
+
+    case pf *: xs => pf *: MdocApp.this.IntrosT[xs]
+def intros[X](t : pf *: IntrosT[X]) = fail("")
+                        ^
+2023.02.15 20:29:24 INFO  no build target found for /Users/jules/git/nbe/src/main/scala/tt4.worksheet.sc. Using presentation compiler with project's scala-library version: 3.2.1
+2023.02.15 20:29:24 INFO  time: evaluated worksheet 'tt4.worksheet.sc' in 2.01s
+2023.02.15 20:30:18 WARN  no build target for: /Users/jules/git/nbe/src/main/scala/tt2.worksheet.sc
+2023.02.15 20:30:19 INFO  time: evaluated worksheet 'tt2.worksheet.sc' in 0.89s
+2023.02.15 20:30:58 WARN  no build target for: /Users/jules/git/nbe/src/main/scala/tt3.worksheet.sc
+2023.02.15 20:30:59 INFO  time: evaluated worksheet 'tt3.worksheet.sc' in 1.14s
+2023.02.15 20:31:24 WARN  no build target for: /Users/jules/git/nbe/src/main/scala/tt2.worksheet.sc
+2023.02.15 20:31:25 INFO  time: evaluated worksheet 'tt2.worksheet.sc' in 0.7s
+2023.02.15 20:31:26 WARN  no build target for: /Users/jules/git/nbe/src/main/scala/tt.worksheet.sc
+2023.02.15 20:31:27 INFO  time: evaluated worksheet 'tt.worksheet.sc' in 0.63s
+2023.02.15 20:31:30 WARN  no build target for: /Users/jules/git/nbe/src/main/scala/tt2.worksheet.sc
+2023.02.15 20:31:31 INFO  time: evaluated worksheet 'tt2.worksheet.sc' in 0.7s
+2023.02.17 22:54:48 INFO  shutting down Metals
